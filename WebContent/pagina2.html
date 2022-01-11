@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ejemplo margin y padding en html y body. Páginas web HTML y hojas de estilo CSS. Bartolomé Sintes Marco. www.mclibre.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!----------			Estilos         ---------------------->
+
+
+  <link rel="stylesheet" href="css/pagina2.css">
+ 
+	<!----------		 	Scripts		      ---------------------->
+ 
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+
+   <script   src="js/JQueryLocal.js"></script> 
+  <script   src="js/pagina2.js"></script> 
+  <script  src="js/AllLibComu.js"></script>
+
+<!-- 	 <iframe src="http://techcrunch.com"></iframe>  -->
+ 
+</head>
+
+<body id="ElementoBody"     onload="inicio()" >   
+
+	  
+	  <script>
+ 
+    
+  $(document).ready(function(){
+	  
+      $("#btn1").click(function(){
+        //  alert("Text: " + $("#test").text()) ;
+          console.log("Text: " +  $("#test").text()  );
+          
+      });
+      $("#btn2").click(function(){
+       //   alert("HTML: " + $("#test").html());
+          console.log("HTML: " + $("#test").html()  );
+
+      });
+  });
+ 
+      $( document ).ready(function() {
+          console.log( "document loaded" );
+      });
+   
+      $( window ).on( "load", function() {
+          console.log( "window loaded" );
+      });
+      
+</script>
+
+<script>  
+  
+  /*-------------------------------------------------------------------------------
+  
+	Escribiendo   OBJETOS
+	              CREACIONDE LOS MISMOS      
+  -------------------------------------------------------------------------------*/
+  
+  var miAuto = new Object();
+  miAuto.marca = "Ford";
+  miAuto.modelo = "Mustang";
+
+  //wqw  miAuto.año m  e e e= 1969;
+
+  
+  //console.log("miauto " + miAuto);
+  //console.log(miAuto);
+  //  Las propiedades no asignadas de un objeto son undefined (y no null).
+// miAuto.color; // undefined
+  
+    /*-------------------------------------------------------------------------------
+ 	 -------------------------------------------------------------------------------*/
+  
+  var myObject = {
+  name: 'Bruce Object',
+  apellido1 : 'escobar',
+  apellido2 : 'julia',
+  me: function () {
+    //this.name = 'Joker Object';
+    console.log(this);
+  }
+	}
+
+myObject.me(); // { name: 'Joker Object', me: [Function: me] }
+ 
+
+miAuto["marca"] = "Ford";
+miAuto["modelo"] = "Mustang";
+miAuto["año"] = 1969;
+
+//  miAuto.color; // undefined
+
+    /*-------------------------------------------------------------------------------
+ 		funcion que la vamos a usar COMO CONSTRUCTOR del objeto
+    -------------------------------------------------------------------------------*/
+    
+    function Persona(nombre, edad, sexo) {
+    	  this.nombre = nombre;
+    	  this.edad = edad;
+    	  this.sexo = sexo;
+   	}
+
+//      Usamos  operador  new
+ 
+ 	var fer = new Persona("Fernando Duclouk", 38, "M");
+
+
+   
+	var objeto = {};
+	objeto['1'] = 'valor';
+//	alert(objeto[1]);
+	
+	//Ésto tendrá como resultado "valor", ya que 1 se convertirá por tipo a '1'.
+	var foo = {propiedad_unica: 1}, bar = {propiedad_unica: 2}, objeto = {};
+	objeto[foo] = 'valor';
+	
+//	console.log("objeto[bar]" +  objeto[bar]);
+	var miObjeto = new Object(),
+    cadena = "miCadena",
+    aleatorio = Math.random(),
+    objeto = new Object();
+//  #000#   
+miObjeto.type                 = "Sintaxis con punto";
+miObjeto["Fecha de creación"] = "Cadena con espacios y acento";
+miObjeto[cadena]              = "String value";
+miObjeto[aleatorio]           = "Número Aleatorio";
+miObjeto[objeto]              = "Objeto";
+miObjeto[""]                  = "Incluso una cadena vacía";
+miObjeto[33434234,444]        = "Numero pi";
+
+//alert(  miObjeto["miCadena"]  );
+//alert(  miObjeto["33434234,444"]  );
+//console.log(miObjeto);
+
+/*
+{444: "Numero pi", 
+	type: "Sintaxis con punto", 
+	Fecha de creación: "Cadena con espacios y acento",
+	miCadena: "String value",
+	0.1678013894844712: "Número Aleatorio", 
+	[object Object]: "Objeto", …}
+"": "Incluso una cadena vacía"
+0.1678013894844712: "Número Aleatorio"
+444: "Numero pi"
+Fecha de creación: "Cadena con espacios y acento"
+[object Object]: "Objeto"
+miCadena: "String value"
+type: "Sintaxis con punto"
+
+*/
+
+var miHonda = {color: "rojo", ruedas: 4, motor: {cilindros: 4, tamanio: 2.2}};
+
+var indexacion = "    ";
+
+function BuclePropiedades (  obj ) {
+	
+	
+	for ( var x in obj ){
+		tipo = typeof ( obj[x]) ;
+		console.log( " propiedades  typeof  " + indexacion + tipo   );
+	   if (tipo=="object" ) {
+		 	indexacion  = indexacion + " --- ";
+		 	BuclePropiedades( obj[x] ) ;
+	   };
+	   
+	};
+	return "";
+}
+//BuclePropiedades( miHonda  );
+//console.log( miHonda  );
+// for ( var x in miHonda ){
+// 	console.log( " mihona propiedades  typeof  " + typeof ( miHonda[x])  );
+// };
+
+//alert( mostrarPropiedades(miObjeto, "miObjeto" )); 
+var obj = {a: 1, b: 2, c: 3};
+var obj = miObjeto;
+
+/* for (const prop in obj) {
+
+	console.log( prop );
+	console.log( typeof ( obj[prop] ) );
+    console.log(`obj.${prop} = ${obj[prop]}`);
+//  console.log(typeof ( `obj.${prop}) );
+
+}
+ */
+// Salida:
+// "obj.a = 1"
+// "obj.b = 2"
+// "obj.c = 3"
+	
+</script>
+  
+  
+  <div class="aviso"> Pagina en construcción  </div>
+    <div  style="height=200px;font-height : 40px">
+  <img src="url(img/paso1.jpg);" >
+  
+  
+  <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+  
+
+
+  <h1>margin y padding en html y body</h1>
+
+  <p>En la hoja de estilo de esta página, las etiquetas html y body tienen definida la propiedad background-color:</p>
+  
+  
+      </div>
+<div id="id-etiquetaHtmlPre"  style="block:display">
+ 
+ <div >
+ <h1> En esta seccion mostramos/ ocultamos la etiqueta "Pre"  </h1>
+ <button  id="boton01"  type="button" style = "height: 50px;padding:10px;" > Mostrar/Ocultar </button>
+</div>
+ 
+ 	
+    <pre id = "lbpre" style="margin-left: 3em;display:block ">
+   html {
+        background: url("cuadricula-transp.png") lightblue;
+        margin: 10px;
+        padding: 10px;
+        }
+        
+        body { 
+        background: url("cuadricula-transp.png") lightyellow;
+        font-family: sans-serif;
+        font-weight: bold;
+        margin: 10px;
+        border: 2px solid;
+        padding: 10px;}
+        
+        h1 {
+        border: black 4px solid;
+        margin: 0;
+        }
+    </pre>
+
+</div>
+
+
+<section>
+ <h2>Task Progress</h2>
+ <p>Progress: <progress id="p" max=100><span>0</span>%</progress></p>
+ <script>
+  var progressBar = document.getElementById('p');
+  function updateProgress(newValue) {
+    progressBar.value = newValue;
+    progressBar.getElementsByTagName('span')[0].textContent = newValue;
+  }
+ </script>
+</section>
+
+<section>
+        <p> bienvenido </p>
+        <p> Estas en mi pagina personal de Intener.Poco a poco iremos construyendo sites profesionales con el ecosistema JAVA. El JAva es el lenguaje de programación es el más poular en el mundo empresarial para intennet.  La principal caracteristica es la POO (Programming Orient Objet) y por otro lado dispone de un conjunto de paquetes dedicados a cada necesidad ( Servidores Web, SOporte XML,Web Service , etc </p>
+
+        <p> Sigue explorando nuestra Web y conoce nuestros proyectos.</p>
+
+</section>
+        
+<section>
+
+        <p id="ejemplo"></p>
+        <button     type="button"   onclick="document.getElementById('FechaHora').innerHTML = Date() ;" >
+          Pulsa para mostrar la hora
+       </button>
+        <p   id="FechaHora" style = "height: 50px;"> </p>   
+        <p   id="Contador" > </p>   
+        <div class="foo" style="color: red;">What color am I?</div>
+     
+        <img src="http://www.deceroadoce.es/wp-content/uploads/2015/11/leopardo-museo-prehistoria-valencia.jpg" class="img-responsive" style="border-radius:10px;" width:300%; height:200%; />
+        <img src="img/imagen01.jpg" class="img-responsive" style="border-radius:10px;" width:300%; height:200%; />
+ 
+        <!--
+         <img src=" http://jsequeiros.com/sites/default/files/imagen-cachorro-comprimir.jpg" class="img-responsive" style="border-radius:10px;" width:300%; height:200%; />
+       -->
+</section>
+
+
+
+  <div style="align:center;border-color: blue;width:10%;margin-left: 30%;" >
+
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;"> point </p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;">line</p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;">circle</p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;"> point </p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;">line</p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;">circle</p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;"> point </p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;">line</p> 
+<p  style="height:40;border:2px;padding:10px;background: #DE423A;display: inline-block;">circle</p> 
+	
+</div>
+ 
+    
+        <script> 
+        var lista = document.getElementsByTagName('p');
+          
+
+          var t , s
+          function interval(){
+              t =1;
+              s = 1;
+              setInterval(function(){
+            	  document.getElementById("Contador").innerHTML=t++; 
+                  if ( s==1 ){   document.getElementById('FechaHora').innerHTML = Date(); s=0; } 
+                  else       {   document.getElementById('FechaHora').innerHTML = ''; s=1;     };                                                    
+              } , 1000);
+         }
+          function timeout(){
+              setTimeout(function(){
+                  document.getElementById("testdiv").innerHTML="Pasaron 2 segundos antes de que pudieras ver esto.";
+              },2000,"JavaScript");
+          }
+
+          interval();       
+
+/*           
+          var elt = document.getElementById("ElementoBody");
+          var out = "";
+          var st = elt.style;
+          var cs = window.getComputedStyle(elt, null);
+            
+          for (x in st)
+              out += "  " + x + " = '" + st[x] + "' > '" + cs[x] + "'\n"; */
+            
+//           console.log("out " + out);
+//           Hello world (Alt+S)</my-component>     
+//           class MyComponent extends HTMLElement {};
+//           customElements.define ('my-component', MyComponent);         
+//           document.querySelector ('#test').addEventListener ('focus', function () {  
+//            console.log (this.tagName, 'focus');
+//           //alert(this.tagName, 'focus');
+//           });
+                  
+        </script>
+      
+      <script>
+
+      
+   /*-------------------------------------------------------------------------------
+   	 document.etElementsByTagName
+     -------------------------------------------------------------------------------
+   	                         	
+      document.getElementsByTagName('elemento');
+      document.getElementsByTagName('elemento')[índice_del_elemento];
+              
+  //Con la primera línea de código obtenemos todos los elementos de un tipo, mientras que con la segunda elegimos una de ellos en concreto. Por ejemplo
+      document.getElementsByTagName('p');
+  // nos devuelve una lista con todos los párrafos del documento, mientras que
+      document.getElementsByTagName('p')[3];
+ */             
+      
+     // var txt =     document.getElementById("id-etiquetaHtmlPre");
+
+    var bt1  =   document.getElementById("boton01");
+    
+    /*-------------------------------------------------------------------------------
+  	 document.etElementsByTagName
+  	 
+  	 var txtPre = document.getElementsByTagName("pre")[0];
+ 	 OBSERVAR QUE RECUPERO EL PRIMER ELEMENTO DEL ARRAY   [0] 
+    ----------------------------------------------------------------------------------*/
+   
+ //	var txtPre = document.getElementsByTagName("pre")[0];
+ //     console.log(txtPre);     
+ //     console.log(txtPre.innerHTML);
+ 
+      console.log(bt1);
+      bt1.addEventListener("click", 
+       	function(){ var valor = document.getElementsByTagName("pre").item(0).style.getPropertyValue("display");
+        if ( valor=='none' ) { 	valor='block'; }else{ valor='none'; };
+        document.getElementsByTagName("pre").item(0).style.setProperty("display",valor);
+      });  // Fin fuction  fin addEventListener
+      
+    
+	//document.getElementsByTagName("pre").item(0).style.setPropertyValue("block");
+	//document.getElementsByTagName("pre").item(0).style.setProperty("block") = "none";
+	
+ 
+</script>
+    <script   >
+        $(document).ready(function() {
+        	
+          $("div").click( function() { alert("Hello, world!"); } );
+        
+          });
+
+
+        
+        var i;
+   function recorrerArbol (nodo) {
+   if (nodo == null) // 
+      return;
+   // haz algo con el nodo
+   for (var i = 0; i < nodo.nodosHijos.length; i++) {
+       recorrerArbol(nodo.nodosHijos[i]);
+   }
+}function recorrerArbol (nodo) {
+   if (nodo == null) // 
+      return;
+   // haz algo con el nodo
+   for (var i = 0; i < nodo.nodosHijos.length; i++) {
+	   console.log( i);
+       recorrerArbol(nodo.nodosHijos[i]);
+   }
+}   
+
+var progressBar = document.getElementsByTagName('body'); 
+recorrerArbol (progressBar);
+
+
+
+</script>
+  </body>
+
+
+
+
+</html> 

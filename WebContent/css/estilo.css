@@ -1,0 +1,26 @@
+ #capa1 {
+	width: 400px;
+	height: 100px;
+	border: solid 5px #f0f;
+	position: relative;
+	top: 10px;
+	left: 10px;
+}
+
+#capa2 {
+	width: 400px;
+	height: 100px;
+	border: solid 10px #00f;
+	position: relative;
+	top: 30px;
+	left: 30px;
+}
+
+#capa3 {
+	width: 200px;
+	height: 50px;
+	border: solid 5px #f60;
+	position: relative;
+	top: 10px;
+	left: 10px;
+}
